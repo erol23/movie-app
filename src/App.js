@@ -1,9 +1,11 @@
+import AppRouter from "./router/Router";
+import AuthContextProvider from "./context/AuthContext";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Firebase</h1>
-    </div>
+    <AuthContextProvider>
+      <AppRouter />
+    </AuthContextProvider>
   );
 }
 

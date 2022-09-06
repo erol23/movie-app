@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { signOut } from "../auth/firebase";
+// import { signOut } from "../auth/firebase";
 
 const Navbar = () => {
   const history = useNavigate();
@@ -21,7 +21,7 @@ const Navbar = () => {
               <button
                 type="button"
                 className="ms-2 btn btn-outline-light"
-                onClick={() => history.push("/login")}
+                onClick={() => history("/login")}
               >
                 Login
               </button>
@@ -31,7 +31,7 @@ const Navbar = () => {
               <button
                 type="button"
                 className="ms-2 btn btn-outline-light"
-                onClick={() => signOut()}
+                // onClick={() => signOut()}
               >
                 Logout
               </button>
@@ -39,7 +39,7 @@ const Navbar = () => {
               <button
                 type="button"
                 className="ms-2 btn btn-outline-light"
-                onClick={() => history.push("/register")}
+                onClick={() => history("/register")}
               >
                 Register
               </button>

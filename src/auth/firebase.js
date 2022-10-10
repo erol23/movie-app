@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged, 
+  signOut,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -64,3 +65,7 @@ export const userObserver = async (setCurentUser) => {
     }
   });
 } 
+
+export const SignOut = () => {
+  signOut(auth)
+}

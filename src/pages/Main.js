@@ -9,7 +9,6 @@ const SEARCH_API =
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
-  console.log("movies", movies);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {

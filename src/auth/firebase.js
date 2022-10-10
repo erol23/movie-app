@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged, 
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDKOuLhQL-PyOPPV-42qeOSCbh4h4xfltI",
@@ -14,9 +20,31 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-export const createUser = async (email, password) => {
+export const createUser = async (email, password, displayName) => {
   try {
-    let userCredential = await createUserWithEmailAndPassword(
+    try {
+      let userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(userCredential);
+    } catch (err) {
+      alert(err.message);
+    }
+    await updateProfile(auth.currentUser, {
+      displayName
+    })
+  } catch (error) {
+    alert("The email address is already in use by another account!");
+  }
+
+  
+};
+
+export const signIn = async (email, password) => {
+  try {
+    let userCredential = await signInWithEmailAndPassword(
       auth,
       email,
       password
@@ -26,3 +54,13 @@ export const createUser = async (email, password) => {
     alert(err.message);
   }
 };
+
+export const userObserver = async (setCurentUser) => {
+  await onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurentUser(user)
+    } else {
+      setCurentUser(null)
+    }
+  });
+} 

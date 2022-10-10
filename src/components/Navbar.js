@@ -5,7 +5,8 @@ import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const history = useNavigate();
-  const { currentUser } = useContext(AuthContext);
+  const { curentUser } = useContext(AuthContext);
+  console.log(curentUser);
 
   return (
     <div>
@@ -15,8 +16,8 @@ const Navbar = () => {
             React Movie App
           </a>
           <div className="buttons">
-            {currentUser ? (
-              <h3>{currentUser.displayName}</h3>
+            {curentUser ? (
+              <h3>{curentUser.displayName}</h3>
             ) : (
               <button
                 type="button"
@@ -27,7 +28,7 @@ const Navbar = () => {
               </button>
             )}
 
-            {currentUser ? (
+            {curentUser ? (
               <button
                 type="button"
                 className="ms-2 btn btn-outline-light"

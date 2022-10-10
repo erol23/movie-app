@@ -1,15 +1,20 @@
 import React, { useState } from "react";
+import { signIn } from "../auth/firebase";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+
+    const handleLogin = () => {
+      signIn(email, password);
+    }
   return (
     <div className="register">
       <div className="register-form">
         <h1 className="form-title display-3">Login</h1>
         <form id="login">
           <div className="mb-3">
-            <label for="email" className="form-label display-4">
+            <label htmlFor="email" className="form-label display-4">
               Email
             </label>
             <input
@@ -21,7 +26,7 @@ const Login = () => {
             ></input>
           </div>
           <div className="mb-3">
-            <label for="password" className="form-label display-4">
+            <label htmlFor="password" className="form-label display-4">
               Password
             </label>
             <input
@@ -36,6 +41,7 @@ const Login = () => {
             type="button"
             className="btn btn-primary form-control"
             value="Login"
+            onClick={handleLogin}
           />
         </form>
       </div>

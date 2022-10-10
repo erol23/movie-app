@@ -7,10 +7,9 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    console.log(firstName, lastName, email, password)
-
     const handleRegister = () => {
-      createUser(email, password);
+      const displayName = `${firstName} ${lastName}`
+      createUser(email, password, displayName);
     }
 
   return (

@@ -1,20 +1,28 @@
 import React, { useState } from "react";
+import { createUser } from "../auth/firebase";
 
 const Register = () => {
-    const {firstName, setFirstName} = useState("");
-    const {lastName, setLastName} = useState("");
-    const {email, setEmail} = useState("");
-    const {password, setPassword} = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    console.log(firstName, lastName, email, password)
+
+    const handleRegister = () => {
+      createUser(email, password);
+    }
+
   return (
     <div className="register">
       <div className="form-image">
-        <img src={"https://picsum.photos/1200/900"} alt="sample" />
+        <img className="background-image" src={"https://picsum.photos/1200/900"} alt="sample" />
       </div>
       <div className="register-form">
-        <h1 className="form-title display-3">Login</h1>
+        <h1 className="form-title display-3">Register</h1>
         <form id="login">
           <div className="mb-3">
-            <label for="first-name" className="form-label display-4">
+            <label htmlFor="first-name" className="form-label display-4">
               First name
             </label>
             <input
@@ -22,11 +30,11 @@ const Register = () => {
               className="form-control"
               id="first-name"
               placeholder="Enter your Firstname..."
-              onChange={e => setFirstName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
             ></input>
           </div>
           <div className="mb-3">
-            <label for="last-name" className="form-label display-4">
+            <label htmlFor="last-name" className="form-label display-4">
               Last name
             </label>
             <input
@@ -34,11 +42,11 @@ const Register = () => {
               className="form-control"
               id="last-name"
               placeholder="Enter your Last name..."
-              onChange={e => setLastName(e.target.value)}
+              onChange={(e) => setLastName(e.target.value)}
             ></input>
           </div>
           <div className="mb-3">
-            <label for="email" className="form-label display-4">
+            <label htmlFor="email" className="form-label display-4">
               Email
             </label>
             <input
@@ -46,11 +54,11 @@ const Register = () => {
               className="form-control"
               id="email"
               placeholder="Enter your email address..."
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
           <div className="mb-3">
-            <label for="password" className="form-label display-4">
+            <label htmlFor="password" className="form-label display-4">
               Password
             </label>
             <input
@@ -58,13 +66,14 @@ const Register = () => {
               className="form-control"
               id="password"
               placeholder="Enter your password..."
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
           <input
             type="button"
-            className="btn btn-primary form control"
+            className="btn btn-primary form-control"
             value="Register"
+            onClick={handleRegister}
           />
         </form>
       </div>

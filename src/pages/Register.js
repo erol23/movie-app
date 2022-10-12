@@ -1,18 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate  } from "react-router-dom";
 import { createUser } from "../auth/firebase";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    
     const handleRegister = () => {
-      const displayName = `${firstName} ${lastName}`
-      createUser(email, password, displayName);
+      // const displayName = `${firstName} ${lastName}`
+      let displayName;
+      if(`${firstName}`&&`${lastName}`){
+        displayName=`${firstName} ${lastName}`
+        createUser(email, password, displayName, navigate);
+      } else{
+        alert("Please enter firstname and lastname")
+      }
     }
-
-  return (
+    
+    return (
     <div className="register">
       <div className="form-image">
         <img className="background-image" src={"https://picsum.photos/1200/900"} alt="sample" />
@@ -30,6 +38,7 @@ const Register = () => {
               id="first-name"
               placeholder="Enter your Firstname..."
               onChange={(e) => setFirstName(e.target.value)}
+              required
             ></input>
           </div>
           <div className="mb-3">
@@ -42,6 +51,7 @@ const Register = () => {
               id="last-name"
               placeholder="Enter your Last name..."
               onChange={(e) => setLastName(e.target.value)}
+              required
             ></input>
           </div>
           <div className="mb-3">
@@ -54,6 +64,7 @@ const Register = () => {
               id="email"
               placeholder="Enter your email address..."
               onChange={(e) => setEmail(e.target.value)}
+              required
             ></input>
           </div>
           <div className="mb-3">
@@ -66,6 +77,7 @@ const Register = () => {
               id="password"
               placeholder="Enter your password..."
               onChange={(e) => setPassword(e.target.value)}
+              required
             ></input>
           </div>
           <input

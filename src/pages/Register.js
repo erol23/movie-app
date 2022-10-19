@@ -1,29 +1,38 @@
 import React, { useState } from "react";
-import { useNavigate  } from "react-router-dom";
-import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
+import { createUser, signUpProvider } from "../auth/firebase";
 
 const Register = () => {
-    const navigate = useNavigate();
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
-    const handleRegister = () => {
-      // const displayName = `${firstName} ${lastName}`
-      let displayName;
-      if(`${firstName}`&&`${lastName}`){
-        displayName=`${firstName} ${lastName}`
-        createUser(email, password, displayName, navigate);
-      } else{
-        alert("Please enter firstname and lastname")
-      }
+  const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = () => {
+    // const displayName = `${firstName} ${lastName}`
+    let displayName;
+    if (`${firstName}` && `${lastName}`) {
+      displayName = `${firstName} ${lastName}`;
+      createUser(email, password, displayName, navigate);
+    } else {
+      alert("Please enter firstname and lastname");
     }
-    
-    return (
+  };
+
+  const handleProvider = () => {
+    signUpProvider();
+    navigate('/');
+  }
+
+  return (
     <div className="register">
       <div className="form-image">
-        <img className="background-image" src={"https://picsum.photos/1200/900"} alt="sample" />
+        <img
+          className="background-image"
+          src={"https://picsum.photos/1200/900"}
+          alt="sample"
+        />
       </div>
       <div className="register-form">
         <h1 className="form-title display-3">Register</h1>
@@ -87,6 +96,12 @@ const Register = () => {
             onClick={handleRegister}
           />
         </form>
+        <button
+          className="btn btn-primary form-control"
+          onClick={handleProvider}
+        >
+          Contunie With Google
+        </button>
       </div>
     </div>
   );

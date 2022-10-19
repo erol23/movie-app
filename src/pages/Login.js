@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate  } from "react-router-dom";
-import { signIn } from "../auth/firebase";
+import { signIn, signUpProvider } from "../auth/firebase";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -10,6 +10,12 @@ const Login = () => {
     const handleLogin = () => {
       signIn(email, password, navigate);
     }
+
+    const handleProvider = () => {
+      signUpProvider();
+      navigate('/');
+    }
+
   return (
     <div className="register">
       <div className="register-form">
@@ -46,6 +52,12 @@ const Login = () => {
             onClick={handleLogin}
           />
         </form>
+        <button
+          className="btn btn-primary form-control"
+          onClick={handleProvider}
+        >
+          Contunie With Google
+        </button>
       </div>
       <div className="form-image">
         <img className="background-image" src={"https://picsum.photos/1200/900"} alt="sample" />

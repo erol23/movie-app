@@ -6,6 +6,8 @@ import {
   updateProfile,
   onAuthStateChanged, 
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -70,4 +72,13 @@ export const userObserver = async (setCurentUser) => {
 
 export const SignOut = () => {
   signOut(auth)
+}
+
+export const signUpProvider = () =>{
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  });
+  signInWithPopup(auth, provider)
+  
 }

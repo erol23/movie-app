@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import MovieCard from "../components/MovieCard";
+import { AuthContext } from "../context/AuthContext";
 
 const FEATURED_API =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -10,6 +11,7 @@ const SEARCH_API =
 const Main = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const { curentUser } = useContext(AuthContext);
 
   useEffect(() => {
     getMovies(FEATURED_API);
@@ -24,9 +26,11 @@ const Main = () => {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (searchTerm) {
+    if (searchTerm && curentUser) {
       getMovies(SEARCH_API + searchTerm);
       setSearchTerm('');
+    } else{
+      alert('Please login to search movie...')
     }
     
   }

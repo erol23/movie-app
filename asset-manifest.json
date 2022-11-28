@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/erol23/recipeapp/static/css/main.1651ddf6.css",
-    "main.js": "/erol23/recipeapp/static/js/main.900350e1.js",
-    "static/js/787.7c42db31.chunk.js": "/erol23/recipeapp/static/js/787.7c42db31.chunk.js",
-    "index.html": "/erol23/recipeapp/index.html",
-    "main.1651ddf6.css.map": "/erol23/recipeapp/static/css/main.1651ddf6.css.map",
-    "main.900350e1.js.map": "/erol23/recipeapp/static/js/main.900350e1.js.map",
-    "787.7c42db31.chunk.js.map": "/erol23/recipeapp/static/js/787.7c42db31.chunk.js.map"
+    "main.css": "/movie-app/static/css/main.1651ddf6.css",
+    "main.js": "/movie-app/static/js/main.35477136.js",
+    "static/js/787.7c42db31.chunk.js": "/movie-app/static/js/787.7c42db31.chunk.js",
+    "index.html": "/movie-app/index.html",
+    "main.1651ddf6.css.map": "/movie-app/static/css/main.1651ddf6.css.map",
+    "main.35477136.js.map": "/movie-app/static/js/main.35477136.js.map",
+    "787.7c42db31.chunk.js.map": "/movie-app/static/js/787.7c42db31.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1651ddf6.css",
-    "static/js/main.900350e1.js"
+    "static/js/main.35477136.js"
   ]
 }

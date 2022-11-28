@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import Main from "../pages/Main";
 import Navbar from "../components/Navbar"

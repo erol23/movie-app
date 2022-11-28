@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/erol23/recipeapp/static/css/main.1651ddf6.css",
+    "main.js": "/erol23/recipeapp/static/js/main.900350e1.js",
+    "static/js/787.7c42db31.chunk.js": "/erol23/recipeapp/static/js/787.7c42db31.chunk.js",
+    "index.html": "/erol23/recipeapp/index.html",
+    "main.1651ddf6.css.map": "/erol23/recipeapp/static/css/main.1651ddf6.css.map",
+    "main.900350e1.js.map": "/erol23/recipeapp/static/js/main.900350e1.js.map",
+    "787.7c42db31.chunk.js.map": "/erol23/recipeapp/static/js/787.7c42db31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1651ddf6.css",
+    "static/js/main.900350e1.js"
+  ]
+}

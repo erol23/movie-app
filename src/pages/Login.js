@@ -13,7 +13,7 @@ const Login = () => {
 
     const handleProvider = () => {
       signUpProvider();
-      navigate('/');
+      navigate('/movie-app');
     }
 
   return (

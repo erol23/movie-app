@@ -32,7 +32,7 @@ export const createUser = async (email, password, displayName, navigate) => {
         password
       );
       console.log(userCredential);
-      navigate('/');
+      navigate('/movie-app');
     } catch (err) {
       alert(err.message);
     }
@@ -54,7 +54,7 @@ export const signIn = async (email, password, navigate) => {
       password
     );
     console.log(userCredential);
-    navigate('/');
+    navigate('/movie-app');
   } catch (err) {
     alert(err.message);
   }

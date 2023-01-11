@@ -13,6 +13,7 @@ const AppRouter = () => {
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/" element={<Main/>}/>
+                <Route path="/movie-app" element={<Main/>}/>
             </Switch>
         </Router>
     )

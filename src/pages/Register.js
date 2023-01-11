@@ -22,7 +22,7 @@ const Register = () => {
 
   const handleProvider = () => {
     signUpProvider();
-    navigate('/');
+    navigate('/movie-app');
   }
 
   return (
